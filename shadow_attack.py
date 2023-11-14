@@ -162,7 +162,7 @@ def attack_digital():
 
     print("Attack finished! Success rate: ", end='')
     print(Counter(map(lambda x: x[:-4].split('_')[-1],
-                      os.listdir(save_dir)))['True'] / len(os.listdir(save_dir)))
+                      os.listdir(save_dir)))['tensor([True])'] / len(os.listdir(save_dir)))
 
 
 def attack_physical():

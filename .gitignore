@@ -3,6 +3,9 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+*.bmp
+dataset/
+model/
 # C extensions
 *.so
 

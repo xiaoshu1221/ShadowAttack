@@ -95,7 +95,7 @@ class PSO:
         self.best_fitness_value = float('inf')
         self.best_position = np.zeros(dim)
         self.parameters = parameters
-        self.succeed = False
+        self.succeed = torch.zeros(1, dtype=torch.bool)
         self.num_query = 0
 
         # Population_initialization
@@ -150,7 +150,7 @@ class PSO:
             (part.pos + part.speed).clip(self.coord_min, self.coord_max))
         parameters.update(self.parameters)
         value, succeed, _ = self.fit_fun(part.pos, **parameters)
-        self.succeed |= succeed
+        self.succeed = self.succeed | succeed
         if value < part.fitness_value:
             part.fitness_value = value
             part.best_pos = part.pos
